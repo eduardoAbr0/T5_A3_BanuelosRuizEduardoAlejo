@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:textSize="70sp"
+        android:text="0"
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="322dp" />
 
@@ -24,7 +25,7 @@
         <Button
             android:id="@+id/btnResiduo"
             style="@style/buttonNum"
-            android:onClick="transformaciones"
+            android:onClick="operaciones"
             android:text="@string/btnResiduo" />
 
         <Button
@@ -160,9 +161,11 @@
 
     <LinearLayout
         style="@style/buttonS">
+
         <Button
-            style="@style/buttonNum"
             android:id="@+id/btnMasMenos"
+            style="@style/buttonNum"
+            android:onClick="transformaciones"
             android:text="@string/btnMasMenos" />
 
         <Button
@@ -170,15 +173,17 @@
             style="@style/buttonNum"
             android:onClick="insertarNumero"
             android:text="@string/btn0" />
+
         <Button
-            style="@style/buttonNum"
             android:id="@+id/btnPunto"
+            style="@style/buttonNum"
+            android:onClick="insertarNumero"
             android:text="@string/btnPunto" />
 
         <Button
             android:id="@+id/btnResultado"
             style="@style/buttonNum"
-            android:onClick="operaciones"
+            android:onClick="resultado"
             android:text="@string/btnRes" />
     </LinearLayout>
 
