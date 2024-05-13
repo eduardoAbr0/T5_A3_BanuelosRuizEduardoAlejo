@@ -25,5 +25,10 @@
     <string name="btnCE">CE</string>
     <string name="btnC">C</string>
     <string name="btnEliminar">⌫</string>
-
+    <string name="btnMC">MC</string>
+    <string name="btnMR">MR</string>
+    <string name="btnMS">MS</string>
+    <string name="btnMmas">M+</string>
+    <string name="btnMmenos">M-</string>
+    
 </resources>

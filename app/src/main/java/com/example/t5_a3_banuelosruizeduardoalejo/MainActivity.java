@@ -16,11 +16,13 @@ import java.text.DecimalFormat;
 import java.text.Format;
 
 public class MainActivity extends AppCompatActivity {
-    double n1;
+    double n1,m=0;
     String opr;
     logicaCalculadora op = new logicaCalculadora();
     private TextView txtOperaciones;
-    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnPunto, btnCE, btnC, btnEliminar, btnRaiz, btnCuadrado, btnDivisionUno, btnMasMenos, btnSuma, btnResta, btnMultiplicacion, btnDivision, btnResiduo, btnRes;
+    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnPunto, btnCE, btnC,
+            btnEliminar, btnRaiz, btnCuadrado, btnDivisionUno, btnMasMenos, btnSuma,
+            btnResta, btnMultiplicacion, btnDivision, btnResiduo, btnMC, btnMR, btnMS, btnMmenos, btnMmas;
 
     boolean ver = true;
     boolean verP = true;
@@ -59,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
         btnMultiplicacion = findViewById(R.id.btnMultiplicacion);
         btnDivision = findViewById(R.id.btnDivision);
         btnResiduo = findViewById(R.id.btnResiduo);
+
+        btnMC = findViewById(R.id.btnMC);
+        btnMR = findViewById(R.id.btnMR);
+        btnMS = findViewById(R.id.btnMS);
+        btnMmenos = findViewById(R.id.btnMmenos);
+        btnMmas = findViewById(R.id.btnMmas);
+        btnMR.setEnabled(false);
+        btnMC.setEnabled(false);
+
     }
 
     public void insertarNumero(View v) {
@@ -109,9 +120,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (v == btnC) {
             txtOperaciones.setText("0");
             opr="";
-
+            ver = true;
         } else if (v == btnCE) {
             txtOperaciones.setText("0");
+            ver = true;
         }
     }//OPCIONES ELIMINAR
 
@@ -141,26 +153,51 @@ public class MainActivity extends AppCompatActivity {
 
         if (v == btnSuma) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-            txtOperaciones.setText("");
+            txtOperaciones.setText("0");
             opr = "+";
+            ver = true;
         } else if (v == btnResta) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-            txtOperaciones.setText("");
+            txtOperaciones.setText("0");
             opr = "-";
+            ver = true;
         } else if (v == btnMultiplicacion) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-            txtOperaciones.setText("");
+            txtOperaciones.setText("0");
             opr = "*";
+            ver = true;
         } else if (v == btnDivision) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-            txtOperaciones.setText("");
+            txtOperaciones.setText("0");
             opr = "/";
+            ver = true;
         } else if (v == btnResiduo) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-            txtOperaciones.setText("");
+            txtOperaciones.setText("0");
             opr = "%";
+            ver = true;
         }
     }//OPERACIONES
+
+    public void funcionesM(View v){
+        if (v == btnMS){
+            m = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
+
+            btnMR.setEnabled(true);
+            btnMC.setEnabled(true);
+        }else if (v == btnMR){
+            txtOperaciones.setText(String.valueOf(m));
+        }else if(v == btnMC){
+            m=0;
+
+            btnMR.setEnabled(false);
+            btnMC.setEnabled(false);
+        }else if(v == btnMmas){
+            m += Double.parseDouble(String.valueOf(txtOperaciones.getText()));
+        }else if(v == btnMmenos){
+            m -= Double.parseDouble(String.valueOf(txtOperaciones.getText()));
+        }
+    }//FUNCIONES M
 
     public void resultado(View v) {
         ver = true;
