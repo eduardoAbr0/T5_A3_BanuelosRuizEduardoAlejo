@@ -6,45 +6,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#34495E">
 
 
     <TextView
         android:id="@+id/txtCajaOperaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin"
+        android:background="#85929E"
         android:gravity="right"
-        android:textSize="70sp"
         android:text="0"
+        android:textSize="100sp"
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="322dp" />
 
     <LinearLayout
         style="@style/buttonS">
 
-        <Button
-            android:id="@+id/btnResiduo"
-            style="@style/buttonNum"
-            android:onClick="operaciones"
-            android:text="@string/btnResiduo" />
+
 
         <Button
             android:id="@+id/btnRaiz"
             style="@style/buttonNum"
             android:onClick="transformaciones"
+            android:background="@drawable/botones_transformaciones"
+
             android:text="@string/btnRaiz" />
 
         <Button
             android:id="@+id/btnCuadrado"
             style="@style/buttonNum"
             android:onClick="transformaciones"
+            android:background="@drawable/botones_transformaciones"
+
             android:text="@string/btnCuadrado" />
 
         <Button
             android:id="@+id/btnDivisionUno"
             style="@style/buttonNum"
             android:onClick="transformaciones"
+            android:background="@drawable/botones_transformaciones"
+
             android:text="@string/btnDivisionUno" />
+
+        <Button
+            android:id="@+id/btnResiduo"
+            style="@style/buttonNum"
+            android:onClick="operaciones"
+            android:background="@drawable/botones_operaciones"
+            android:text="@string/btnResiduo" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,24 +66,29 @@
             android:id="@+id/btnCE"
             style="@style/buttonNum"
             android:onClick="opcionesEliminar"
+            android:background="@drawable/botones_eliminacion"
             android:text="@string/btnCE" />
 
         <Button
             android:id="@+id/btnC"
             style="@style/buttonNum"
             android:onClick="opcionesEliminar"
+            android:background="@drawable/botones_eliminacion"
             android:text="@string/btnC" />
 
         <Button
             android:id="@+id/btnEliminar"
             style="@style/buttonNum"
             android:onClick="opcionesEliminar"
+            android:background="@drawable/botones_eliminacion"
+
             android:text="@string/btnEliminar" />
 
         <Button
             android:id="@+id/btnDivision"
             style="@style/buttonNum"
             android:onClick="operaciones"
+            android:background="@drawable/botones_operaciones"
             android:text="@string/btnDivision" />
     </LinearLayout>
 
@@ -82,24 +99,29 @@
             android:id="@+id/btn7"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
-            android:text="@string/btn7" />
+            android:text="@string/btn7"
+            android:background="@drawable/botones_numeros"/>
 
         <Button
             android:id="@+id/btn8"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
-            android:text="@string/btn8" />
+            android:text="@string/btn8"
+            android:background="@drawable/botones_numeros"/>
 
         <Button
             android:id="@+id/btn9"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
-            android:text="@string/btn9" />
+            android:text="@string/btn9"
+            android:background="@drawable/botones_numeros"/>
+
 
         <Button
             android:id="@+id/btnMultiplicacion"
             style="@style/buttonNum"
             android:onClick="operaciones"
+            android:background="@drawable/botones_operaciones"
             android:text="@string/btnMultiplicacion" />
     </LinearLayout>
 
@@ -110,24 +132,28 @@
             android:id="@+id/btn4"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn4" />
 
         <Button
             android:id="@+id/btn5"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn5" />
 
         <Button
             android:id="@+id/btn6"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn6" />
 
         <Button
             android:id="@+id/btnResta"
             style="@style/buttonNum"
             android:onClick="operaciones"
+            android:background="@drawable/botones_operaciones"
             android:text="@string/btnResta" />
     </LinearLayout>
 
@@ -138,23 +164,27 @@
             android:id="@+id/btn1"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn1" />
 
         <Button
             android:id="@+id/btn2"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn2" />
 
         <Button
             android:id="@+id/btn3"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn3" />
 
         <Button
             android:id="@+id/btnSuma"
             style="@style/buttonNum"
+            android:background="@drawable/botones_operaciones"
             android:onClick="operaciones"
             android:text="@string/btnSuma" />
     </LinearLayout>
@@ -166,24 +196,29 @@
             android:id="@+id/btnMasMenos"
             style="@style/buttonNum"
             android:onClick="transformaciones"
+            android:background="@drawable/botones_transformaciones"
             android:text="@string/btnMasMenos" />
 
         <Button
             android:id="@+id/btn0"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_numeros"
             android:text="@string/btn0" />
 
         <Button
             android:id="@+id/btnPunto"
             style="@style/buttonNum"
             android:onClick="insertarNumero"
+            android:background="@drawable/botones_transformaciones"
             android:text="@string/btnPunto" />
 
         <Button
             android:id="@+id/btnResultado"
             style="@style/buttonNum"
             android:onClick="resultado"
+            android:background="@drawable/botones_transformaciones"
+
             android:text="@string/btnRes" />
     </LinearLayout>
 
