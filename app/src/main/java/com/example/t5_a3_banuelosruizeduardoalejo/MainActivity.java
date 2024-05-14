@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void insertarNumero(View v) {
-        if (ver) {
-            txtOperaciones.setText("");
+        if(ver){
+           txtOperaciones.setText("");
         }
         ver = false;
 
@@ -99,8 +99,16 @@ public class MainActivity extends AppCompatActivity {
         } else if (v == btn9) {
             txtOperaciones.setText(txtOperaciones.getText() + "9");
         } else if (v == btnPunto) {
+            if (txtOperaciones.getText().equals("")){
+                txtOperaciones.setText("0");
+            }
+
             if (verP) {
-                txtOperaciones.setText(txtOperaciones.getText() + ".");
+                if (txtOperaciones.getText().equals("")||txtOperaciones.getText().equals("0")){
+                    txtOperaciones.setText("0.");
+                }else {
+                    txtOperaciones.setText(txtOperaciones.getText() + ".");
+                }
             }
             verP = false;
         }
@@ -109,21 +117,31 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void opcionesEliminar(View v) {
-        verP = true;
 
         if (v == btnEliminar) {
             String txtAct = txtOperaciones.getText().toString();
 
             if (txtAct.length() != 0) {
-                txtOperaciones.setText(txtAct.substring(0, txtAct.length() - 1));
+                if (txtOperaciones.getText().charAt(txtOperaciones.length()-1)=='.'){
+                    verP=true;
+                }
+
+                if (txtOperaciones.length()==1){
+                    txtOperaciones.setText("0");
+                }else{
+                    txtOperaciones.setText(txtAct.substring(0, txtAct.length() - 1));
+                }
+
             }
         } else if (v == btnC) {
             txtOperaciones.setText("0");
             opr="";
             ver = true;
+            verP = true;
         } else if (v == btnCE) {
             txtOperaciones.setText("0");
             ver = true;
+            verP = true;
         }
     }//OPCIONES ELIMINAR
 
@@ -135,47 +153,54 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error: raíz compleja", Toast.LENGTH_SHORT).show();
             } else {
                 txtOperaciones.setText(String.valueOf(op.raiz(num)));
+                verP = true;
             }
         } else if (v == btnCuadrado) {
             double num = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText(String.valueOf(op.cuadrado(num)));
+            verP = true;
         } else if (v == btnDivisionUno) {
             double num = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText(String.valueOf(op.divisionUno(num)));
+            verP = true;
         } else if (v == btnMasMenos) {
             double num = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText(String.valueOf(op.masmenos(num)));
+            verP = true;
         }
     }//TRANSFORMACIONES
 
     public void operaciones(View v) {
-        verP = true;
-
         if (v == btnSuma) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText("0");
             opr = "+";
             ver = true;
+            verP = true;
         } else if (v == btnResta) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText("0");
             opr = "-";
             ver = true;
+            verP = true;
         } else if (v == btnMultiplicacion) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText("0");
             opr = "*";
             ver = true;
+            verP = true;
         } else if (v == btnDivision) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText("0");
             opr = "/";
             ver = true;
+            verP = true;
         } else if (v == btnResiduo) {
             n1 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
             txtOperaciones.setText("0");
             opr = "%";
             ver = true;
+            verP = true;
         }
     }//OPERACIONES
 
@@ -201,35 +226,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void resultado(View v) {
         ver = true;
-
         double n2 = Double.parseDouble(String.valueOf(txtOperaciones.getText()));
-        switch (opr) {
-            case "+":
-                txtOperaciones.setText(String.valueOf(op.suma(n1, n2)));
-                break;
-            case "-":
-                txtOperaciones.setText(String.valueOf(op.resta(n1, n2)));
-                break;
-            case "*":
-                txtOperaciones.setText(String.valueOf(op.multiplicacion(n1, n2)));
-                break;
-            case "/":
-                if (n1 != 0) {
-                    txtOperaciones.setText(String.valueOf(op.division(n1, n2)));
-                } else {
-                    Toast.makeText(this, "ERROR: Divisor cero.", Toast.LENGTH_SHORT).show();
-                }
-                break;
-            case "%":
-                txtOperaciones.setText(String.valueOf(op.residuo(n1, n2)));
-                break;
 
-            case "":
-                txtOperaciones.setText("0");
-                break;
+        if (opr!=null){
+            switch (opr) {
+                case "+":
+                    txtOperaciones.setText(String.valueOf(op.suma(n1, n2)));
+                    break;
+                case "-":
+                    txtOperaciones.setText(String.valueOf(op.resta(n1, n2)));
+                    break;
+                case "*":
+                    txtOperaciones.setText(String.valueOf(op.multiplicacion(n1, n2)));
+                    break;
+                case "/":
+                    if (n1 != 0) {
+                        txtOperaciones.setText(String.valueOf(op.division(n1, n2)));
+                    } else {
+                        Toast.makeText(this, "ERROR: Divisor cero.", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+                case "%":
+                    txtOperaciones.setText(String.valueOf(op.residuo(n1, n2)));
+                    break;
+
+                case "":
+                    break;
+
+            }
+
+        }else{
+            Toast.makeText(this,"Intenta hacer una operacion.",Toast.LENGTH_SHORT).show();
         }
 
-        opr = "";
+        opr="";
     }
 
 }//main
